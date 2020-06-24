@@ -41,11 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     let heartButton = document.getElementById("heart")
                     heartButton.disabled = true
                     pauseButton.innerText = 'resume'
+                    
                 }
 
-                if (pauseButton.innerText === 'resume'){
+                else if (pauseButton.innerText === 'resume'){
 
-                    clearInterval(ourInterval)
+                    let ourInterval = setInterval(function(){count++; htmlCounter.innerText = count;},1000)
                     let minusButton = document.getElementById("minus")
                     minusButton.disabled = false
                     let plusButton = document.getElementById("plus")
@@ -60,12 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (e.target.id=="heart"){
 
-                // const liAll = document.getElementsByTagName('li')
-                // const liArray = Array.from(liAll)
+                const liAll = document.getElementsByTagName('li')
+                const liArray = Array.from(liAll)
 
-                // const existingLiLike = document.querySelector(`li[data-number=${count}]`)
-
-                if (document.querySelector(`li[data-number=${count}]`)) {
+                let existingLiLike = document.querySelector(`li[data-num=${count}]`)
+                
+                if (liArray.includes(existingLiLike)) {
                     
                     let likeCount = existingLiLike.querySelector("span").innerText
                     existingLiLike.innerHTML = `${count} has been liked <span>${likeCount.parseInt++}</span> times`
