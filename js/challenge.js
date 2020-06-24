@@ -1,12 +1,14 @@
-let clockTimer = window.setInterval(countUp, 1000)
+document.addEventListener("DOMContentLoaded", function(e){
+
+  let clockTimer = window.setInterval(countUp, 1000)
    function countUp(){
     let counter = document.getElementById('counter')
     let myCounter = parseInt(counter.innerText)
       counter.innerText = myCounter + 1 
     }
 
+
 document.addEventListener('click', function(e){
-    console.log(e.target)
     
     if (e.target.id === "minus"){
         let myCounter = parseInt(counter.innerText)
@@ -14,12 +16,15 @@ document.addEventListener('click', function(e){
     else if (e.target.id === "plus"){
         let myCounter = parseInt(counter.innerText)
         counter.innerText = myCounter + 1}
-    else if (e.target.id === "heart "){
-        let likeContainer = document.getElementsByTagName('ul')
-        let like = document.createElement('li')
-        like.innerHTML = `${counter.innerText} has been liked `
-        likeContainer.append(like)}
-    })
+    else if (e.target.id === "heart"){
+            let huh = document.createElement('li')
+            huh.textContent = `${counter.innerText} has been liked `
+            let lC = document.querySelector('.likes')
+            lC.append(huh)
+    }
+  
+})
+
     
     
  document.addEventListener('submit', function(e){
@@ -33,9 +38,32 @@ document.addEventListener('click', function(e){
         e.target.reset()
     })
 
+    let pause = document.getElementById('pause')
+    pause.addEventListener('click', function(e){
+        if (pause.innerText === "pause"){
+        window.clearInterval(clockTimer)
+        pause.innerText = "resume"
+        document.getElementById("minus").disabled = true;
+        document.getElementById("plus").disabled = true;
+        document.getElementById("heart").disabled = true;
+        document.getElementById("submit").disabled = true;}
+        else if (pause.innerText === "resume"){
+            clockTimer = window.setInterval(countUp, 1000)
+            function countUp(){
+             let counter = document.getElementById('counter')
+             let myCounter = parseInt(counter.innerText)
+               counter.innerText = myCounter + 1 
+             }
+            pause.innerText = "pause"
+            document.getElementById("minus").disabled = false;
+            document.getElementById("plus").disabled = false;
+            document.getElementById("heart").disabled = false;
+            document.getElementById("submit").disabled = false;}
+    })
+
 
    
 
 
-
+})
     
