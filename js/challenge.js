@@ -70,23 +70,25 @@ function incrementCounter(){
 
     function like(){
           let likeCounter=0;
-          li=document.createElement('li')
         heart.addEventListener('click', function(event){
           likeCounter++ 
           setTimeout(function(){
             
             if(likeCounter>1 && counter){
+                li=document.createElement('li')
                 li.innerText=`${counter} has liked ${likeCounter} times`   
             }
-            else{li.innerText=`${counter} has liked ${likeCounter} time`}
+            else if(likeCounter==1)
+            {li=document.createElement('li')
+                li.innerText=`${counter} has liked ${likeCounter} time`}
             
-            
+            likes.appendChild(li)
             likeCounter=0
             }, 1000)
             
             
         })
-        likes.appendChild(li)
+
     }
 
 
