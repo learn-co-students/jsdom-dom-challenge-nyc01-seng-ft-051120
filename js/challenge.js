@@ -105,3 +105,83 @@ const pause = document.getElementById("pause")
 
 
 
+// document.addEventListener("DOMContentLoaded", function (e) {
+
+//    const counter = document.getElementById("counter")
+//    let running = true
+//    const likes = {}
+//    const form = document.getElementById("comment-form")
+
+//    let timer = setInterval(function () {
+//       incrementCounter(1)
+//    }, 1000);
+
+//    function incrementCounter(number) {
+//       currentSecond = parseInt(counter.textContent)
+//       if (!(currentSecond < 1 && number < 0)) {
+//          counter.textContent = currentSecond + number
+//       }
+//    }
+
+//    function createLikeLi(second) {
+//       const likeLi = document.createElement("li")
+//       likeLi.dataset.number = second
+//       likeLi.textContent = ` ${second} second(s) has 1 like`
+//       return likeLi
+//    }
+
+//    function incrementSecondsLike(second) {
+//       if ((likes[second])) {
+//          const existingLi = document.querySelector(`[data-number="${second}"]`)
+//          likes[second]++ //= parseInt(likes[second])++
+//          existingLi.textContent = `${second} second(s) has ${likes[second]} likes`
+//       } else {
+//          likes[second] = 1
+//          const likesUl = document.querySelector("ul.likes")
+//          const li = createLikeLi(second)
+//          likesUl.append(li)
+//       }
+//    }
+
+//    document.addEventListener("click", function (e) {
+//       e.preventDefault
+//       if (e.target.textContent === " ➕ " && running === true) {
+//          incrementCounter(1)
+//       } else if (e.target.textContent === " ➖ " && running === true) {
+//          incrementCounter(-1)
+//       } else if (e.target.textContent === " ❤️ " && running === true) {
+//          const second = counter.textContent
+//          incrementSecondsLike(second)
+//       } else if (e.target.textContent === " pause ") {
+//          running = false
+//          clearInterval(timer)
+//          e.target.textContent = " resume "
+//       } else if (e.target.textContent === " resume ") {
+//          running = true
+//          timer = setInterval(function () {
+//             incrementCounter(1)
+//          }, 1000);
+//          e.target.textContent = " pause "
+//       }
+//    })
+
+//    function renderCommentP(input) {
+//       const commentP = document.createElement('p')
+//       commentP.className = "comment"
+//       commentP.textContent = input
+//       form.append(commentP)
+//    }
+
+//    form.addEventListener("submit", function (e) {
+//       e.preventDefault()
+//       textField = form.querySelector("#comment-input")
+//       if (textField.value !== "") {
+//          renderCommentP(textField.value)
+//          form.reset()
+//       }
+
+//    })
+
+// })
+
+
